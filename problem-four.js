@@ -1,4 +1,7 @@
-function flatten() {
-  //using reduce flatten a nested array
-  //Should be familiar
+function flatten(arr) {
+  return arr.reduce((prev, current) => {
+    return Array.isArray(current)
+      ? [...prev, ...flatten(current)]
+      : [...prev, current]
+  }, []);
 }
